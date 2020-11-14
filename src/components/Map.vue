@@ -18,17 +18,23 @@
     methods: {
       drawMap() {
         function updateMesh(obj) {
-          let prism = prisms.find(function (prism) {
-            return prism == obj;
+          let prism = prisms.find(function (prism){
+            return prism === obj;
+          });
+          let index = prisms.findIndex(function (prism){
+            return prism === obj;
           });
           // 重置 Mesh 颜色
-          prisms.forEach(function (prism) {
+          prisms.forEach(function (prism,index) {
+            let color = boundsArr[index].color;
             updateMeshColor(prism, color);
           });
 
           // 更新选中 Mesh 的 vertexColors
           if (prism) {
-            updateMeshColor(prism, selectColor);
+            let selectColor = boundsArr[index].selectColor;
+            console.log("selectColor:"+selectColor);
+            updateMeshColor(prism, boundsArr[index].selectColor);
           }
         }
         function updateMeshColor(prism, color){
@@ -54,8 +60,8 @@
           center: [117.492534, 27.340327],
           pitch: 45, // 地图俯仰角度，有效范围 0 度- 83 度
           viewMode: '3D', // 地图模式
-          zoom: 10,
-          mapStyle: 'amap://styles/4f59cb5ce9a257218d40dac1c33a6674'
+          zoom: 9,
+          // mapStyle: 'amap://styles/4f59cb5ce9a257218d40dac1c33a6674'
         });
         myMap.AmbientLight = new AMap.Lights.AmbientLight([1, 1, 1], 0.5);
         myMap.DirectionLight = new AMap.Lights.DirectionLight([0, 0, 1], [1, 1, 1], 1);
@@ -65,23 +71,28 @@
         let boundsArr = shaowulines;
         let height = 36000;
         for(let distinct of boundsArr){
-            let prism = new AMap.Object3D.Prism({
-                path: distinct.bounds,
-                height: height,
-                color: color
-            });
-            prisms.push(prism);
-            prism.transparent = true;
-            // 绘制图表
-            object3Dlayer.add(prism);
+          let prism = new AMap.Object3D.Prism({
+            path: distinct.bounds,
+            height: height,
+            color: distinct.color
+          });
+          prisms.push(prism);
+          prism.transparent = true;
+          // 绘制图表
+          object3Dlayer.add(prism);
+
         }
-        myMap.on('click',function (ev) {
+
+        //绑定事件
+        myMap.on('click', function (ev) {
           let pixel = ev.pixel;
           let px = new AMap.Pixel(pixel.x, pixel.y);
           let obj = myMap.getObject3DByContainerPos(px, [object3Dlayer], false) || {};
           // 选中的 object3D 对象，这里为当前 Mesh
           let object = obj.object;
-          updateMesh(object);
+          if(object) {
+            updateMesh(object);
+          }
         });
       }
     }

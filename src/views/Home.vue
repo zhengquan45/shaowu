@@ -1,12 +1,15 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <Map/>
   </div>
 </template>
 
 <script>
-
+  import Map from '@/components/Map.vue'
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: {
+    Map
+  }
 }
 </script>
