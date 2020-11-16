@@ -40,6 +40,10 @@
         let layer = new mapvgl.LineFlowLayer({
           color: 'rgba(255, 71, 26, 0.9)',
           width: 4,
+          animation: true,
+          duration: 1, // 循环时间2s
+          trailLength: 0.6, // 拖尾长度占间隔的0.4
+          interval: 0.2 ,// 粒子长度占线整体长度的0.2
           data: data
         });
         view.addLayer(layer);

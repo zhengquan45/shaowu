@@ -1,7 +1,7 @@
 export default [
     {
         geometry: {
-            type: 'Polygon',
+            type: 'LineString',
             coordinates: [
                 [
                     117.2335089578811,
@@ -2471,7 +2471,7 @@ export default [
     },
     {
         geometry: {
-            type: 'Polygon',
+            type: 'LineString',
             coordinates: [
                         [
                             117.55498195820644,
