@@ -36,10 +36,10 @@
         let view = new mapvgl.View({
           map: bmapgl
         });
-        debugger
         // 3. 创建可视化图层，并添加到图层管理器中
-        let layer = new mapvgl.ShapeLineLayer({
+        let layer = new mapvgl.LineFlowLayer({
           color: 'rgba(255, 71, 26, 0.9)',
+          width: 4,
           data: data
         });
         view.addLayer(layer);
