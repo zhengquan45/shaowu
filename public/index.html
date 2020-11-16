@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <!--引入高德地图JSAPI -->
-    <script src="https://webapi.amap.com/maps?v=1.4.15&key=be0135311e0e0021c1c91058a6bf07eb"></script>
-    <!--引入UI组件库（1.0版本） -->
-    <script type="text/javascript" src="https://webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script>
+    <!--引入百度地图JSAPI -->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.0&type=webgl&ak=gmr5f9Cxg1b9DEeZoeeOfbLfWGzHrEKE"></script>
+    <script src="https://mapv.baidu.com/gl/examples/static/common.js"></script>
+    <script src="https://mapv.baidu.com/build/mapv.js"></script>
+    <script src="https://unpkg.com/mapvgl/dist/mapvgl.min.js"></script>
+
+    <!-- 如果使用到Three.js相关的图层需要引用 -->
+    <script src="https://unpkg.com/mapvgl/dist/mapvgl.threelayers.min.js"></script>
   </head>
   <body>
     <noscript>

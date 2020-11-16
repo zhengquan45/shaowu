@@ -8,8 +8,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "echarts-extension-amap": "^1.7.0",
-    "echarts-gl": "^1.1.1",
+    "mapvgl": "^1.0.0-beta.85",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0"
   },
@@ -17,7 +16,6 @@
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "echarts": "^4.9.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
